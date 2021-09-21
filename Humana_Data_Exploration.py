@@ -26,6 +26,7 @@ for c in desc.columns:
         if desc[c][2] == 0.0:
             zero_list.append(c)
 
+training_clean_full.drop(zero_list,axis=1,inplace=True)
 
 #make a list of numeric and string columns
 string_list = [l for l in dict(training_clean_full.dtypes) if training_clean_full.dtypes[l] == 'object'][1:]
@@ -46,6 +47,6 @@ for s in string_list:
     ax.set_title('Count Plot of Vaccinated vs. '+s)
     cplot.savefig(folder+'\\Plots\\Count Plot of Vaccinated vs.'+s+'.png')
     
-hm, ax = plt.subplots(figsize=(80,80))
+hm, ax = plt.subplots(figsize=(200,200))
 ax = sns.heatmap(training_clean_full[num_list].corr(),annot=True,vmin=-1,center=0,vmax=1)
 hm.savefig(folder+"\\Plots\\Heat Map of Numeric Variables")
