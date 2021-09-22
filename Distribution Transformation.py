@@ -36,17 +36,25 @@ string_list = [l for l in dict(training_clean_full.dtypes) if training_clean_ful
 num_list = [l for l in dict(training_clean_full.dtypes) if training_clean_full.dtypes[l] in ['int64','float64']]
 string_list.remove('covid_vaccination')
 
+print("\n******** Square Root Transformation ********")
 # Running the square root transformation
 sq_root = np.sqrt(training_clean_full[num_list])
 
 for n in num_list:
+    # Uses pd.dataframe.hist
     sq_root.hist(column = n)
     plt.savefig(folder+'Sqrt Distribution of '+n+'.png')
 
-# log transformation of the distribution
-log = np.log(training_clean_full[num_list])
+print("\n******** Reciprocal Transformation *********")
 
+# First we have to use np.isfinite to test the list for fitness (meaning not 
+# including nans in the transformation)
+reciprocal_numbers = np.isfinite(training_clean_full[num_list])
+reciprocal = np.reciprocal(reciprocal_numbers)
+
+# Create the distributions
 for n in num_list:
-    log.hist(column = n)
-    plt.savefig(folder+'Sqrt Distribution of '+n+'.png')
+    # Uses pd.dataframe.hist
+    reciprocal.hist(column = n)
+    plt.savefig(folder+'Reciprocal Distribution of '+n+'.png')
 
