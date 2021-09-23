@@ -187,7 +187,7 @@ data_map = {
 	'atlas_net_international_migration_rate': 	        [ DT.Interval , (-0.9028, 10.1939) ],
 	'atlas_deep_pov_children': 	                        [ DT.Interval , (-0.4998, 55.5641) ],
 	'bh_ncdm_pct': 	                                        [ DT.Interval , (-0.5, 12.5) ],
-	'auth_3mth_non_er': 	                                [ DT.Interval , (0.0, 1.0, 2.0) ],
+	'auth_3mth_non_er': 	                                [ DT.Interval , (0.0, 2.0) ],
 	'atlas_foodinsec_child_03_11': 	                        [ DT.Interval , (4.6, 13.3) ],
 	'rx_branded_mbr_resp_pmpm_cost': 	                [ DT.Interval , (-0.5, 1649.1575) ],
 	'atlas_pc_wic_redemp12': 	                        [ DT.Interval , (-0.3606, 94.0552) ],
